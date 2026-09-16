@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook Sign Up</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f0f2f5;
+        }
+
+        /* Top Bar */
+        .header {
+            height: 70px;
+            background-color: #3b5998;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12%;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .login input {
+            width: 130px;
+            padding: 6px;
+            margin-right: 5px;
+        }
+
+        .login button {
+            background-color: #4267b2;
+            color: white;
+            border: 1px solid #29487d;
+            padding: 6px 15px;
+        }
+
+        /* Main Content */
+        .main {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            padding-top: 40px;
+        }
+
+        /* Left Side */
+        .left {
+            width: 430px;
+        }
+
+        .left h2 {
+            color: #333;
+        }
+
+        .left p {
+            margin: 35px 0;
+            font-size: 15px;
+        }
+
+        .left b {
+            display: inline-block;
+            width: 180px;
+        }
+
+        /* Sign Up */
+        .signup {
+            width: 400px;
+        }
+
+        .signup h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .signup p {
+            color: #555;
+        }
+
+        .name {
+            display: flex;
+            gap: 10px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .name input {
+            width: 50%;
+        }
+
+        .full {
+            width: 100%;
+        }
+
+        .birthday {
+            display: flex;
+            gap: 5px;
+        }
+
+        .gender {
+            margin: 12px 0;
+        }
+
+        .signup button {
+            background-color: #42b72a;
+            color: white;
+            border: none;
+            padding: 12px 60px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .terms {
+            font-size: 11px;
+            color: #777;
+        }
+
+        .page {
+            font-size: 13px;
+            margin-top: 25px;
+        }
+
+        .page a {
+            color: #385898;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <div class="logo">facebook</div>
+
+        <div class="login">
+            <input type="text" placeholder="Email or phone">
+            <input type="password" placeholder="Password">
+            <button>Log In</button>
+        </div>
+
+    </div>
+
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- LEFT CONTENT -->
+        <div class="left">
+
+            <h2>Connect with friends and the<br>
+                world around you on Facebook.</h2>
+
+            <p>
+                <b>See photos and updates</b>
+                from friends in News Feed
+            </p>
+
+            <p>
+                <b>Share what's new</b>
+                in your life on your timeline
+            </p>
+
+            <p>
+                <b>Find more</b>
+                of what you're looking for with Facebook Search
+            </p>
+
+        </div>
+
+
+        <!-- SIGN UP FORM -->
+        <div class="signup">
+
+            <h1>Sign Up</h1>
+
+            <p>It's free and always will be.</p>
+
+            <form>
+
+                <div class="name">
+                    <input type="text" placeholder="First name">
+                    <input type="text" placeholder="Last name">
+                </div>
+
+                <input class="full"
+                       type="text"
+                       placeholder="Email or mobile number">
+
+                <input class="full"
+                       type="text"
+                       placeholder="Re-enter email or mobile number">
+
+                <input class="full"
+                       type="password"
+                       placeholder="New Password">
+
+                <br>
+
+                <label><b>Birthday</b></label>
+
+                <div class="birthday">
+                    <select>
+                        <option>Day</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+
+                    <select>
+                        <option>Month</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                    </select>
+
+                    <select>
+                        <option>Year</option>
+                        <option>2000</option>
+                        <option>2001</option>
+                        <option>2002</option>
+                    </select>
+                </div>
+
+                <div class="gender">
+
+                    <input type="radio" name="gender">
+                    Male
+
+                    <input type="radio" name="gender">
+                    Female
+
+                </div>
+
+                <p class="terms">
+                    By clicking Sign Up, you agree to our Terms,
+                    Data Policy and Cookie Policy.
+                </p>
+
+                <button type="submit">Sign Up</button>
+
+            </form>
+
+            <p class="page">
+                <a href="#">Create a Page</a> for a celebrity,
+                brand or business.
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

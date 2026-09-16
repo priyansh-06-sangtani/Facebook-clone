@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ludo Board</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.board {
+    width: 700px;
+    height: 700px;
+    display: grid;
+    grid-template-columns: 40px 240px 100px 240px 40px;
+    grid-template-rows: 40px 240px 100px 240px 40px;
+    border: 1px solid #555;
+}
+
+/* Corner Areas */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue {
+    background: #1697dc;
+}
+
+.yellow {
+    background: #f5d400;
+}
+
+.red {
+    background: #ed151d;
+}
+
+.green {
+    background: #009c4b;
+}
+
+/* Home square */
+.home-box {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border: 1px solid #aaa;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    padding: 18px;
+}
+
+.token {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+    border: 2px solid rgba(0,0,0,.15);
+}
+
+/* Board grid */
+.grid {
+    display: grid;
+    background: white;
+}
+
+.cell {
+    border: 1px solid #aaa;
+}
+
+/* Top path */
+.top-path {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.top-path .yellow-cell {
+    background: #f5d400;
+}
+
+/* Bottom path */
+.bottom-path {
+    grid-column: 3;
+    grid-row: 4 / 6;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.bottom-path .red-cell {
+    background: #ed151d;
+}
+
+/* Left path */
+.left-path {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.left-path .blue-cell {
+    background: #1697dc;
+}
+
+/* Right path */
+.right-path {
+    grid-column: 4 / 6;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.right-path .green-cell {
+    background: #009c4b;
+}
+
+/* Center */
+.center {
+    grid-column: 3;
+    grid-row: 3;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #777;
+}
+
+/* Center triangles */
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.triangle.top {
+    top: 0;
+    left: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 50px solid #f5d400;
+}
+
+.triangle.right {
+    right: 0;
+    top: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 50px solid #009c4b;
+}
+
+.triangle.bottom {
+    bottom: 0;
+    left: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #ed151d;
+}
+
+.triangle.left {
+    left: 0;
+    top: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 50px solid #1697dc;
+}
+
+/* Outer arrow cells */
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.arrow-top {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.arrow-bottom {
+    grid-column: 3;
+    grid-row: 5;
+}
+
+.arrow-left {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.arrow-right {
+    grid-column: 5;
+    grid-row: 3;
+}
+
+/* Stars */
+.star {
+    font-size: 27px;
+    color: white;
+    text-align: center;
+    line-height: 1;
+    text-shadow:
+        1px 1px 0 #999,
+        -1px -1px 0 #999,
+        1px -1px 0 #999,
+        -1px 1px 0 #999;
+}
+
+/* Corner positioning */
+.blue-home {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.yellow-home {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.red-home {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.green-home {
+    grid-column: 4;
+    grid-row: 4;
+}
+
+/* Responsive */
+@media (max-width: 750px) {
+    .board {
+        width: 95vw;
+        height: 95vw;
+        grid-template-columns: 5.7% 34.3% 14.3% 34.3% 5.7%;
+        grid-template-rows: 5.7% 34.3% 14.3% 34.3% 5.7%;
+    }
+
+    .home-box {
+        width: 65%;
+        height: 65%;
+        gap: 8%;
+        padding: 8%;
+    }
+
+    .token {
+        width: 100%;
+        height: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="board">
+
+    <!-- Top Arrow -->
+    <div class="arrow arrow-top">↓</div>
+
+    <!-- Blue Home -->
+    <div class="home blue blue-home">
+        <div class="home-box">
+            <div class="token blue"></div>
+            <div class="token blue"></div>
+            <div class="token blue"></div>
+            <div class="token blue"></div>
+        </div>
+    </div>
+
+    <!-- Yellow Home -->
+    <div class="home yellow yellow-home">
+        <div class="home-box">
+            <div class="token yellow"></div>
+            <div class="token yellow"></div>
+            <div class="token yellow"></div>
+            <div class="token yellow"></div>
+        </div>
+    </div>
+
+    <!-- Red Home -->
+    <div class="home red red-home">
+        <div class="home-box">
+            <div class="token red"></div>
+            <div class="token red"></div>
+            <div class="token red"></div>
+            <div class="token red"></div>
+        </div>
+    </div>
+
+    <!-- Green Home -->
+    <div class="home green green-home">
+        <div class="home-box">
+            <div class="token green"></div>
+            <div class="token green"></div>
+            <div class="token green"></div>
+            <div class="token green"></div>
+        </div>
+    </div>
+
+    <!-- Top Path -->
+    <div class="top-path">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell yellow-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell star">☆</div>
+        <div class="cell yellow-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell yellow-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell yellow-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell yellow-cell"></div>
+        <div class="cell"></div>
+    </div>
+
+    <!-- Left Path -->
+    <div class="left-path">
+        <div class="cell"></div>
+        <div class="cell blue-cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell blue-cell"></div>
+        <div class="cell blue-cell"></div>
+        <div class="cell blue-cell"></div>
+        <div class="cell blue-cell"></div>
+        <div class="cell blue-cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell blue-cell"></div>
+        <div class="cell star">☆</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+
+    <!-- Right Path -->
+    <div class="right-path">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell star">☆</div>
+        <div class="cell"></div>
+
+        <div class="cell green-cell"></div>
+        <div class="cell green-cell"></div>
+        <div class="cell green-cell"></div>
+        <div class="cell green-cell"></div>
+        <div class="cell green-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell green-cell"></div>
+        <div class="cell"></div>
+    </div>
+
+    <!-- Bottom Path -->
+    <div class="bottom-path">
+        <div class="cell"></div>
+        <div class="cell red-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell red-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell red-cell"></div>
+        <div class="cell star">☆</div>
+
+        <div class="cell"></div>
+        <div class="cell red-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell red-cell"></div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+
+    <!-- Center -->
+    <div class="center">
+        <div class="triangle top"></div>
+        <div class="triangle right"></div>
+        <div class="triangle bottom"></div>
+        <div class="triangle left"></div>
+    </div>
+
+    <!-- Side arrows -->
+    <div class="arrow arrow-left">→</div>
+    <div class="arrow arrow-right">←</div>
+
+</div>
+
+</body>
+</html>

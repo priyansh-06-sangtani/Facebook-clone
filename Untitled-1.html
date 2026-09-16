@@ -1,0 +1,194 @@
+<HTML>
+    <head>
+        <title>My First Web Page</title>
+    </head>
+
+    <body>
+
+        <h1>Welcome to My First Web Page</h1>
+
+        <p>This is a paragraph of text on my first web page.</p>
+
+        <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+            <li>Fourth item</li>
+            <li>Fifth item</li>
+        </ul>
+
+        <ol>
+            <li>First ordered item</li>
+            <li>Second ordered item</li>
+            <li>Third ordered item</li>
+            <li>Fourth ordered item</li>
+            <li>Fifth ordered item</li>
+        </ol>
+
+        <table border="1">
+
+            <caption>Student Details</caption>
+
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+            </tr>
+
+            <tr>
+                <td rowspan="2">Aarav</td>
+                <td>19</td>
+                <td>B.Tech</td>
+            </tr>
+
+            <tr>
+                <!-- Aarav cell is already merged with this row -->
+                <td>20</td>
+                <td>BCA</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Aarav</td>
+
+            </tr>
+
+        </table>
+
+    </body>
+</HTML>
+
+
+<HTML>
+<head>
+    <title>Seminar Schedule</title>
+</head>
+
+<body>
+
+<table border="1">
+
+    <caption><b>Seminar</b></caption>
+
+    <tr>
+        <th rowspan="2">Day</th>
+
+        <th colspan="2">Schedule</th>
+
+        <th rowspan="2">Topic</th>
+    </tr>
+
+    <tr>
+        <th>Begin</th>
+        <th>End</th>
+    </tr>
+
+    <tr>
+        <td rowspan="2">Monday</td>
+
+        <td rowspan="2">8:00 a.m.</td>
+        <td rowspan="2">5:00 p.m.</td>
+
+        <td>Introduction to XML</td>
+    </tr>
+
+    <tr>
+        <td>Validity: DTD and Relax NG</td>
+    </tr>
+
+    <tr>
+        <td rowspan="3">Tuesday</td>
+
+        <td>8:00 a.m.</td>
+        <td>11:00 a.m.</td>
+
+        <td>XPath</td>
+    </tr>
+
+    <tr>
+        <td>11:00 a.m.</td>
+        <td>2:00 p.m.</td>
+
+        <td rowspan="2">XSL Transformations</td>
+    </tr>
+
+    <tr>
+        <td>2:00 p.m.</td>
+        <td>5:00 p.m.</td>
+    </tr>
+
+    <tr>
+        <td>Wednesday</td>
+
+        <td>8:00 a.m.</td>
+        <td>12:00 p.m.</td>
+
+        <td>XSL Formatting Objects</td>
+    </tr>
+
+</table>
+
+</body>
+</HTML>
+
+
+
+<HTML>
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+    <h1>Registration Form</h1>
+
+    <form>
+
+        <!-- Full Name -->
+        <label>Full Name:</label>
+        <input type="text" name="fullname">
+        <br><br>
+
+        <!-- Email -->
+        <label>Email:</label>
+        <input type="email" name="email">
+        <br><br>
+
+        <!-- Contact -->
+        <label>Contact:</label>
+        <input type="tel" name="contact">
+        <br><br>
+
+        <!-- Gender -->
+        <label>Gender:</label>
+
+        <input type="radio" name="gender" value="male">
+        <label>Male</label>
+
+        <input type="radio" name="gender" value="female">
+        <label>Female</label>
+
+        <input type="radio" name="gender" value="other">
+        <label>Other</label>
+
+        <br><br>
+
+        <!-- Select Skill -->
+        <label>Select Skill:</label>
+
+        <input type="radio" name="skill" value="html">
+        <label>HTML</label>
+
+        <input type="radio" name="skill" value="css">
+        <label>CSS</label>
+
+        <input type="radio" name="skill" value="javascript">
+        <label>JavaScript</label>
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+</HTML>

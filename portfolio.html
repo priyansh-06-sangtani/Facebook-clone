@@ -1,0 +1,446 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Priyansh Sangtani | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #111;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav h2 {
+            color: #00bcd4;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: #00bcd4;
+        }
+
+        /* HOME */
+        .home {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .home-content {
+            max-width: 750px;
+        }
+
+        .home h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .home h1 span {
+            color: #00a9c0;
+        }
+
+        .home h3 {
+            font-size: 25px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .home p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #00a9c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background: #00899c;
+        }
+
+        /* COMMON SECTION */
+        section {
+            padding: 70px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px #ddd;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #ddd;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+            color: #00a9c0;
+        }
+
+        .project p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* EXPERIENCE */
+        .experience {
+            background: white;
+        }
+
+        .experience-box {
+            max-width: 800px;
+            margin: auto;
+            background: #f5f5f5;
+            padding: 30px;
+            border-left: 5px solid #00a9c0;
+            border-radius: 8px;
+        }
+
+        .experience-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .experience-box p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 12px 0;
+            font-size: 17px;
+        }
+
+        .contact a {
+            color: #00a9c0;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .home h1 {
+                font-size: 40px;
+            }
+
+            .home h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2>Priyansh</h2>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h1>Hi, I'm <span>Priyansh Sangtani</span></h1>
+
+            <h3>UI/UX Designer & Developer</h3>
+
+            <p>
+                I'm a student at Poornima College of Engineering,
+                interested in UI/UX design, web development and
+                creating simple and useful digital experiences.
+            </p>
+
+            <a href="#projects" class="btn">View My Work</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2>About Me</h2>
+
+        <div class="about-content">
+
+            <p>
+                Hello! I'm Priyansh Sangtani, a student at
+                Poornima College of Engineering. I enjoy designing
+                interfaces, building websites and learning new
+                technologies.
+            </p>
+
+            <p>
+                I have also worked on UI/UX projects and completed
+                a 15-day UI/UX internship at WUWB Technologies,
+                where I designed a coffee delivery app interface.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2>My Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">C++</div>
+            <div class="skill">C#</div>
+            <div class="skill">.NET</div>
+            <div class="skill">SQL</div>
+            <div class="skill">UI/UX Design</div>
+            <div class="skill">Figma</div>
+            <div class="skill">Web Design</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <h2>My Projects</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>Coffee Delivery App</h3>
+
+                <p>
+                    A UI/UX design project created during my
+                    internship at WUWB Technologies. The design
+                    focuses on creating a simple and user-friendly
+                    coffee ordering experience.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <h3>Employee Management System</h3>
+
+                <p>
+                    A C# and .NET based application for managing
+                    employee information with CRUD operations,
+                    validation and database functionality.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <h3>Student Management API</h3>
+
+                <p>
+                    A .NET Web API project using Entity Framework
+                    Core and SQL database to manage student
+                    information.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <h3>Ice Cream Website</h3>
+
+                <p>
+                    A simple website concept for an ice cream
+                    company featuring different flavours and
+                    a clean product presentation.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+
+        <h2>Experience</h2>
+
+        <div class="experience-box">
+
+            <h3>UI/UX Intern — WUWB Technologies</h3>
+
+            <p>
+                Completed a 15-day UI/UX internship where I
+                learned the basics of user interface design,
+                user experience principles and Figma.
+            </p>
+
+            <p>
+                During the internship, I worked on a
+                Coffee Delivery App UI design.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2>Contact Me</h2>
+
+        <p>
+            📧 Email:
+            <a href="mailto:priyanshsangtani2006@gmail.com">
+                priyanshsangtani2006@gmail.com
+            </a>
+        </p>
+
+        <p>
+            💼 LinkedIn:
+            <a href="https://www.linkedin.com/in/priyansh-sangtani-a01a62317/"
+               target="_blank">
+                LinkedIn Profile
+            </a>
+        </p>
+
+        <p>
+            📸 Instagram:
+            <a href="https://www.instagram.com/priyansh_sangtani"
+               target="_blank">
+                @priyansh_sangtani
+            </a>
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>© 2026 Priyansh Sangtani. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+</html>
+```
